@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Актив — Экономический факультет АмГУ</title>
+    <meta name="description" content="Студенческий актив экономического факультета АмГУ: наука, спорт, волонтёрство.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили для галереи */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Затемнение фона при просмотре */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="mb.png" alt="Логотип факультета">
+      </a>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html#about">О факультете</a></li>
+        <li><a href="index.html#education">Направления</a></li>
+        <li><a href="index.html#contact">Контакты</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger-menu" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav">
+  <button class="close-menu">×</button>
+  <ul>
+    <li><a href="index.html#about">О факультете</a></li>
+    <li><a href="index.html#education">Направления</a></li>
+    <li><a href="index.html#contact">Контакты</a></li>
+  </ul>
+</nav>
+<div class="overlay"></div>
+
+<section style="padding: 120px 0 80px;">
+  <div class="container">
+    <h2 style="font-family: 'Benzin-Bold', sans-serif; font-size: 2rem; color: #1a3a5c; margin-bottom: 40px; text-align: center;">🎓 АКТИВ</h2>
+    
+    <div style="max-width: 800px; margin: 0 auto;">
+      
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; text-indent: 30px; margin-bottom: 25px;">
+        Хочешь, чтобы студенческие годы запомнились не только парами и сессиями? Добро пожаловать в АКТИВ экономического факультета АмГУ!
+      </p>
+      
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; text-indent: 30px; margin-bottom: 25px;">
+        <strong>Студенческая весна</strong> — наш главный звёздный час. Ты попадёшь на большую сцену, где рождаются лучшие номера и царит атмосфера настоящего фестиваля. Тебе с товарищами по активу предстоит подготовить целый концерт от факультета.
+      </p>
+      
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; text-indent: 30px; margin-bottom: 25px;">
+        <strong>Мисс и Мистер АМГУ</strong> — битва красоты, таланта и харизмы. Участвовать или помогать готовить победителей? Решать тебе, но скучно не будет точно!!!
+      </p>
+      
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; text-indent: 30px; margin-bottom: 25px;">
+        <strong>Юниор Шоу</strong> — младшие курсы доказывают, что они тоже умеют удивлять. А старшие помогают, ставят хореографию, пишут сценарии. Вообщем это отличный шанс заявить о себе в будущем и получить бурю эмоций!
+      </p>
+      
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; text-indent: 30px; margin-bottom: 25px;">
+        И это не всё!!! КВН, интеллектуальные игры, а также спонтанные и не только вечеринки. (Стим ван лав ❤️)
+      </p>
+      
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; text-indent: 30px; margin-bottom: 25px;">
+        Здесь ты получишь огромное количество положительных эмоций, навыков и воспоминаний, обретёшь друзей, и погрузишься в творчество с головой.
+      </p>
+      
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; text-indent: 30px; margin-bottom: 40px;">
+        Хочешь стать частью чего-то большего и работать в команде людей, где каждый вносит свою лепту, каждый кайфует от процесса? Тогда вступай в наш АКТИВ!
+      </p>
+
+      <!-- Галерея -->
+      <h3 style="font-family: 'Benzin-Semibold', sans-serif; font-size: 1.5rem; color: #1a3a5c; text-align: center; margin-bottom: 20px;">📸 ГАЛЕРЕЯ</h3>
+      
+      <div class="gallery">
+        <img src="f/1.jpg" alt="Фото 1" onclick="openLightbox(this.src)">
+        <img src="f/2.jpg" alt="Фото 2" onclick="openLightbox(this.src)">
+        <img src="f/3.jpg" alt="Фото 3" onclick="openLightbox(this.src)">
+        <img src="f/4.jpg" alt="Фото 4" onclick="openLightbox(this.src)">
+        <img src="f/5.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+         <img src="f/6.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+          <img src="f/7.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/8.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/9.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+             <img src="f/10.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/11.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/12.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/13.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/14.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/15.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/16.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/17.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/18.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/19.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/20.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/21.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/22.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/23.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/24.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+             <img src="f/25.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+              <img src="f/26.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/27.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/28.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/29.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/30.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+           <img src="f/31.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/32.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/33.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/34.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+            <img src="f/36.jpg" alt="Фото 5" onclick="openLightbox(this.src)">
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Лайтбокс для увеличения фото -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img src="" alt="Просмотр фото" id="lightbox-img">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox').classList.add('active');
+    document.getElementById('lightbox-img').src = src;
+  }
+  
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+</script>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-info">
+                <p>Экономический факультет ФГБОУ ВО «Амурский государственный университет»</p>
+                <p>© 2026. Все права защищены.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="mainscript.js"></script>
+</body>
+</html>
